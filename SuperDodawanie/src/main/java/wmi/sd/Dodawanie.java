@@ -10,10 +10,10 @@ package wmi.sd;
  * @author bikol
  */
 public class Dodawanie {
-    public static String dodawanie(String a, String b){
+    public static String dodawanie(String a, String b) throws IllegalArgumentException{
         if(!isInteger(a)) {
             return dodawanieFloatDoInt(a, b);
-        } else {
+        } else if(isValidNumber(a) && isValidNumber(b)) {
             int aa = Integer.valueOf(a);
             int bb = Integer.valueOf(b);
 
@@ -21,6 +21,9 @@ public class Dodawanie {
                 return Integer.toString(aa+bb);
             }
             return "etam co mnie to";
+        }
+        else{
+            throw new IllegalArgumentException("Co najmniej jeden z argumentow nie jest liczba");
         }
     }
     
@@ -38,5 +41,9 @@ public class Dodawanie {
         int bb = Integer.valueOf(b);
         System.out.println(aa+bb);
         return Float.toString(aa+bb);
+    }
+
+    private static boolean isValidNumber(String a) {
+        return a.matches("[0-9]+");
     }
 }
