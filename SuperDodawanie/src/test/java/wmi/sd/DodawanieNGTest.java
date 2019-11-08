@@ -81,7 +81,7 @@ public class DodawanieNGTest {
         String a = "Trzy";
         String b = "Jeden";
 
-        String expResult = "Cztery";
+        String expResult = "4";
         String result = Dodawanie.dodawanie(a, b);
         assertEquals(result, expResult);
     }
