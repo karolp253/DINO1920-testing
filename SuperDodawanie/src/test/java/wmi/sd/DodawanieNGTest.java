@@ -87,7 +87,7 @@ public class DodawanieNGTest {
     }
     
     @Test
-    public void testDodawanieTrzechLiczb() {
+    public void testDodawanieTrzechCyfr() {
         System.out.println("dodawanie trzech liczb naraz");
 
         String a = "4;5;6";
