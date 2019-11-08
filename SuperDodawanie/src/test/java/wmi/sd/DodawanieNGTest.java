@@ -73,4 +73,28 @@ public class DodawanieNGTest {
             assertEquals(result, expResult);
         }
     }
+    
+    @Test
+    public void testDodawanieCyfry() {
+        System.out.println("dodawanie Cyfr");
+
+        String a = "Trzy";
+        String b = "Jeden";
+
+        String expResult = "Cztery";
+        String result = Dodawanie.dodawanie(a, b);
+        assertEquals(result, expResult);
+    }
+    
+    @Test
+    public void testDodawanieTrzechLiczb() {
+        System.out.println("dodawanie trzech liczb naraz");
+
+        String a = "4;5;6";
+        String b = "1;2;3";
+
+        String expResult = "5;7;9";
+        String result = Dodawanie.dodawanie(a, b);
+        assertEquals(result, expResult);
+    }
 }
