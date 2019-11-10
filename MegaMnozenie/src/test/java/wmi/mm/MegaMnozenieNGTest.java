@@ -7,6 +7,8 @@ package wmi.mm;
 
 import java.util.Random;
 import static org.testng.Assert.*;
+
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -73,5 +75,26 @@ public class MegaMnozenieNGTest {
             String result = MegaMnozenie.mnozenie(a, b);
             assertEquals(result, expResult);
         }
+    }
+    //Test throws IllegalArgumentException
+    @Test
+    public void testMnozenie4() {
+        System.out.println("mnozenie");
+        //Input values a and b out on bound.
+        String a = "990";
+        String b = "110";
+        try {
+            MegaMnozenie.mnozenie(a,b);
+            fail();
+        } catch (IllegalArgumentException e) {
+            Assert.assertTrue(true);
+        }
+    }
+
+    /**
+     * Test of mnozenie method, of class MegaMnozenie.
+     */
+    @Test
+    public void testName() {
     }
 }
