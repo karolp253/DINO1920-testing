@@ -1,4 +1,4 @@
 language: java
 sudo: false
-script: mvn install "SuperDodawanie/pom.xml"
+script: mvn install -f "SuperDodawanie/pom.xml"
 
