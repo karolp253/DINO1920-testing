@@ -11,12 +11,20 @@ package wmi.mm;
  */
 public class MegaMnozenie {
     public static String mnozenie(String a, String b){
-        int aa = Integer.parseInt(a);
-        int bb = Integer.parseInt(b);
-        if(aa <=100 && bb <=100){
+        if (isInteger(a) && isInteger(b)){
+            int aa = Integer.parseInt(a);
+            int bb = Integer.parseInt(b);
             return Integer.toString(aa*bb);
-        } else {
-            throw new IllegalArgumentException();
         }
+        else{
+            double aa = Double.parseDouble(a);
+            double bb = Double.parseDouble(b);
+            double result = Math.round(aa * bb * 100.0) / 100.0;
+            return Double.toString(result);
+            }
+        }
+    private static boolean isInteger(String a){
+        double number = Double.parseDouble(a);
+        return (number % 1 == 0);
     }
 }

@@ -68,9 +68,9 @@ public class MegaMnozenieNGTest {
     @Test
     public void testMnozenieFloat(){
         System.out.println("mnozenie float");
-        String a = "1.5f";
-        String b = "2.3f";
-        String expResult = "3.45f";
+        String a = "1.5";
+        String b = "2.3";
+        String expResult = "3.45";
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
