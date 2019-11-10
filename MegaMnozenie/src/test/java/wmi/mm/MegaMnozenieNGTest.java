@@ -70,7 +70,6 @@ public class MegaMnozenieNGTest {
             int bb = r.nextInt(100);
             String a = Integer.toString(aa);
             String b = Integer.toString(bb);
-
             String expResult = Integer.toString(aa*bb);
             String result = MegaMnozenie.mnozenie(a, b);
             assertEquals(result, expResult);
@@ -92,9 +91,15 @@ public class MegaMnozenieNGTest {
     }
 
     /**
-     * Test of mnozenie method, of class MegaMnozenie.
+     * Test of mnozenie_float method, of class MegaMnozenie.
      */
     @Test
-    public void testName() {
+    public void testMnozenie_float1() {
+        System.out.println("mnozenie_float");
+        String a = "12.12";
+        String b = "11.11";
+        String expResult = "134.6532";
+        String result = MegaMnozenie.mnozenie_float(a, b);
+        assertEquals(result, expResult);
     }
 }
