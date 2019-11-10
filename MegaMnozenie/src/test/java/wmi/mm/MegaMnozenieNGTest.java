@@ -18,25 +18,6 @@ import org.testng.annotations.Test;
  * @author bikol
  */
 public class MegaMnozenieNGTest {
-    
-    public MegaMnozenieNGTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
-    @BeforeMethod
-    public void setUpMethod() throws Exception {
-    }
-
-    @AfterMethod
-    public void tearDownMethod() throws Exception {
-    }
 
     /**
      * Test of mnozenie method, of class MegaMnozenie.
@@ -73,5 +54,24 @@ public class MegaMnozenieNGTest {
             String result = MegaMnozenie.mnozenie(a, b);
             assertEquals(result, expResult);
         }
+    }
+    @Test
+    public void testMnozenieWiekszeNiz100(){
+        System.out.println("mnozenie liczb wiekszych niz 100");
+        String a = "101";
+        String b = "102";
+        String expResult = "10302";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenieFloat(){
+        System.out.println("mnozenie float");
+        String a = "1.5f";
+        String b = "2.3f";
+        String expResult = "3.45f";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
     }
 }
