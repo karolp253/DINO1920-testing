@@ -76,9 +76,27 @@ public class MegaMnozenieNGTest {
             assertEquals(result, expResult);
         }
     }
-
     @Test
     public void testMnozenie4() {
+        System.out.println("mnozenie");
+        String a = "0";
+        String b = "string";
+        String expResult = "";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+    @Test
+    public void testMnozenie5() {
+        System.out.println("mnozenie");
+        String a = "10";
+        String b = "string";
+        String expResult = "stringstringstringstringstringstringstringstringstringstring";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenie6() {
         System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
 
         String arg1 = "ab";
@@ -91,7 +109,7 @@ public class MegaMnozenieNGTest {
     }
 
     @Test
-    public void testMnozenie5() {
+    public void testMnozenie7() {
         System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
 
         String arg1 = "a";
