@@ -100,6 +100,26 @@ public class MegaMnozenieNGTest {
         String b = "11.11";
         String expResult = "134.6532";
         String result = MegaMnozenie.mnozenie_float(a, b);
+
+    
+    
+    @Test
+    public void testMnozenie4() {
+        System.out.println("mnozenie");
+        String a = "0";
+        String b = "string";
+        String expResult = "";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+    
+    @Test
+    public void testMnozenie5() {
+        System.out.println("mnozenie");
+        String a = "10";
+        String b = "string";
+        String expResult = "stringstringstringstringstringstringstringstringstringstring";
+        String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
 }
