@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-language: java
-sudo: false
-script: mvn install -f "SuperDodawanie/pom.xml"
-
-=======
-script: bash script.sh
-language: java
->>>>>>> upstream/master
