@@ -6,6 +6,8 @@
 package wmi.mm;
 
 import java.util.Random;
+import java.util.Set;
+
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -74,4 +76,31 @@ public class MegaMnozenieNGTest {
             assertEquals(result, expResult);
         }
     }
+
+    @Test
+    public void testMnozenie4() {
+        System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
+
+        String arg1 = "ab";
+        String arg2 = "zxv";
+
+        String expResult = "az, ax, av, bz, bx, bv";
+        String result = MegaMnozenie.mnozenie(arg1, arg2);
+
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenie5() {
+        System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
+
+        String arg1 = "a";
+        String arg2 = "z";
+
+        String expResult = "az";
+        String result = MegaMnozenie.mnozenie(arg1, arg2);
+
+        assertEquals(result, expResult);
+    }
+
 }
