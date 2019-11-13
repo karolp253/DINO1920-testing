@@ -74,4 +74,32 @@ public class MegaMnozenieNGTest {
             assertEquals(result, expResult);
         }
     }
+
+    /**
+     * Test of mnozenie double values method, of class MegaMnozenie.
+     */
+    @Test
+    public void testMnozenieDouble() {
+        System.out.println("mnozenie double example");
+        String a = "0.555555555";
+        String b = "0.666666666";
+        String expResult = "0.3703703696296296";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+    @Test
+    public void testMnozenieDouble2() {
+        System.out.println("mnozenie double random");
+        Random r = new Random();
+        for(int i=0;i<100;i++){
+            double aa = r.nextDouble();
+            double bb = r.nextDouble();
+            String a = Double.toString(aa);
+            String b = Double.toString(bb);
+
+            String expResult = Double.toString(aa*bb);
+            String result = MegaMnozenie.mnozenie(a, b);
+            assertEquals(result, expResult);
+        }
+    }
 }
