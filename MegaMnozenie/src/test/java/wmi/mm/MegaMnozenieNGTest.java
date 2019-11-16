@@ -5,6 +5,7 @@
  */
 package wmi.mm;
 
+import java.util.Arrays;
 import java.util.Random;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -95,4 +96,25 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
+
+    @Test
+    public void testMnozenie6(){
+        System.out.println("mnozenie");
+        String a = "1 2 3";
+        String b = "4 5 6";
+        String expResult = "4 10 18";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenie7(){
+        System.out.println("mnozenie");
+        String a = "1.2 2.3 3.4";
+        String b = "4.5 5.6 6.7";
+        String expResult = "5.4 12.88 22.78";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
 }
