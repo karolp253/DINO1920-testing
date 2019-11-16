@@ -80,7 +80,7 @@ public class MegaMnozenie
         {
             throw new IllegalArgumentException();
         }
-        
+        return "string";
     }
     
     // Method checks if given String is parsable to int 

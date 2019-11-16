@@ -1,2 +1,4 @@
-script: bash script.sh
 language: java
+os: linux
+script: mvn install -f "MegaMnozenie/pom.xml"
+
