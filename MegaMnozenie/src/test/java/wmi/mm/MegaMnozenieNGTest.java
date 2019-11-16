@@ -95,4 +95,40 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
+    
+    @Test
+    public void testSilnia() {
+        System.out.println("mnozenie");
+        int aa = 5;
+        char bb = '!';
+        String a = Integer.toString(aa);
+        String b = Character.toString(bb);
+        String expResult = "120";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result,expResult);
+    }
+    
+    @Test
+    public void testSilnia2() {
+        System.out.println("mnozenie");
+        int aa = 0;
+        char bb = '!';
+        String a = Integer.toString(aa);
+        String b = Character.toString(bb);
+        String expResult = "1";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result,expResult);
+    }
+    
+    @Test
+    public void testSilnia3() {
+        System.out.println("mnozenie");
+        int aa = -5;
+        char bb = '!';
+        String a = Integer.toString(aa);
+        String b = Character.toString(bb);
+        String expResult = "Brak Wyniku";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result,expResult);
+    }
 }
