@@ -110,9 +110,9 @@ public class MegaMnozenieNGTest {
     @Test
     public void testMnozenie7(){
         System.out.println("mnozenie");
-        String a = "1.2 2.3 3.4";
-        String b = "4.5 5.6 6.7";
-        String expResult = "5.4 12.88 22.78";
+        String a = "4 8 16";
+        String b = "1 2 3 4 5";
+        String expResult = "4 16 48";
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }

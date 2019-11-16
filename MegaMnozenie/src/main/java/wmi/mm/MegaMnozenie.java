@@ -5,47 +5,53 @@
  */
 package wmi.mm;
 
+import java.util.Arrays;
+
 /**
  * @author bikol
  */
 class MegaMnozenie {
 
     static String mnozenie(String a, String b) {
-        if (isParsableToInt(a) || isParsableToInt(b)) {
-            // "a" and "b" can be parsed to int
-            if (isParsableToInt(a) && isParsableToInt(b)) {
-                int aa = Integer.parseInt(a);
-                int bb = Integer.parseInt(b);
-                if (aa <= 100 && bb <= 100) {
-                    return Integer.toString(aa * bb);
-                } else {
-                    throw new IllegalArgumentException();
-                }
-            }
-            // Only "a" can be parsed to int OR
-            // only "b" can be parsed to int
-            else {
-                // If "a" is number and "b" is some string ...
-                if (isParsableToInt(a)) {
-                    // ... return "b" multiplied "a" times
-                    int aa = Integer.parseInt(a);
-                    return multiplyString(b, aa);
-
-                }
-                // If "b" is number and "a" is some string ...
-                else if (isParsableToInt(b)) {
-                    // ... return "a" multiplied "b" times
-                    int bb = Integer.parseInt(b);
-                    return multiplyString(a, bb);
-                }
-            }
+        if(isSpaceInString(a)&&isSpaceInString(b)){
+            return multiplyStringWithSpaces(a,b);
         }
-        // Both "a" and "b" can't be parsed to int
         else {
-            throw new IllegalArgumentException();
-        }
-        return null;
+            if (isParsableToInt(a) || isParsableToInt(b)) {
+                // "a" and "b" can be parsed to int
+                if (isParsableToInt(a) && isParsableToInt(b)) {
+                    int aa = Integer.parseInt(a);
+                    int bb = Integer.parseInt(b);
+                    if (aa <= 100 && bb <= 100) {
+                        return Integer.toString(aa * bb);
+                    } else {
+                        throw new IllegalArgumentException();
+                    }
+                }
+                // Only "a" can be parsed to int OR
+                // only "b" can be parsed to int
+                else {
+                    // If "a" is number and "b" is some string ...
+                    if (isParsableToInt(a)) {
+                        // ... return "b" multiplied "a" times
+                        int aa = Integer.parseInt(a);
+                        return multiplyString(b, aa);
 
+                    }
+                    // If "b" is number and "a" is some string ...
+                    else if (isParsableToInt(b)) {
+                        // ... return "a" multiplied "b" times
+                        int bb = Integer.parseInt(b);
+                        return multiplyString(a, bb);
+                    }
+                }
+            }
+            // Both "a" and "b" can't be parsed to int
+            else {
+                throw new IllegalArgumentException();
+            }
+            return null;
+        }
     }
 
     // Method checks if given String is parsable to int 
@@ -64,6 +70,54 @@ class MegaMnozenie {
 
         for (int i = 0; i < howManyTimes; i++) {
             result += stringToMultiply;
+        }
+        return result;
+    }
+
+    private static boolean isSpaceInString(String a){
+        return a.contains(" ");
+    }
+
+    private static int countSpacesInString(String a){
+        int count = 0;
+        int index_of_space = 0;
+        String substring_of_a;
+        do{
+            index_of_space = a.indexOf(" ");
+            substring_of_a = a.substring(index_of_space+1);
+            a=substring_of_a;
+            count++;
+        }while(index_of_space!=-1);
+    return count-1;
+    }
+
+    private static String multiplyStringWithSpaces(String first,String second){
+        String result="";
+
+        int spacesInFirst = countSpacesInString(first);
+        int spacesInSecond = countSpacesInString(second);
+
+        String[] first_splited = first.split(" ");
+        String[] second_splited = second.split(" ");
+
+        int i=0;
+        if(spacesInFirst<spacesInSecond){
+            String[] arrayResult = new String[spacesInFirst+1];
+            for(String x:first_splited){
+                arrayResult[i] = MegaMnozenie.mnozenie(x,second_splited[i]);
+                i++;
+            }
+            result= Arrays.toString(arrayResult);
+            result=result.substring(1, result.length()-1).replace(",", "");
+        }
+        else {
+            String[] arrayResult = new String[spacesInSecond+1];
+            for(String x:second_splited){
+                arrayResult[i] = MegaMnozenie.mnozenie(x,first_splited[i]);
+                i++;
+            }
+            result= Arrays.toString(arrayResult);
+            result=result.substring(1, result.length()-1).replace(",", "");
         }
         return result;
     }
