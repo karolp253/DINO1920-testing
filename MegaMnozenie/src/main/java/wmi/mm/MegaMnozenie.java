@@ -37,9 +37,33 @@ public class MegaMnozenie
                 // If "a" is number and "b" is some string ...
                 if(isParsableToInt(a))
                 {
+                    // If "a" is number and "b" is "!" ...
+                    if(b=="!") {
+                        int aaa = Integer.parseInt(a);
+                        if(aaa<0) {
+                            return "Brak Wyniku";
+                        }
+                        else if(aaa==0 || aaa==1) {
+                            return "1";
+                        }
+                        else {
+                            int silnia=1;
+                            int licznik = 1;
+                            while(licznik<aaa) {
+                                licznik+=1;
+                                silnia*=licznik;
+                            }
+                            // ... return a!
+                            return Integer.toString(silnia);
+                            
+                        }
+                    }
+                     // If "a" is number and "b" is some string other than "!" ...
+                    else {
                     // ... return "b" multiplied "a" times
                     int aa = Integer.parseInt(a);
                     return multiplyString(b, aa);
+                    }
                     
                 }
                 // If "b" is number and "a" is some string ...
