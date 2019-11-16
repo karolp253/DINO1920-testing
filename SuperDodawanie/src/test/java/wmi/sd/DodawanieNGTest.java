@@ -33,7 +33,7 @@ public class DodawanieNGTest {
         String result = Dodawanie.dodawanie(a, b);
         assertEquals(result, expResult);
     }
-
+  
     @Test
     public void testDodawanie2() {
         System.out.println("dodawanie");
@@ -50,6 +50,30 @@ public class DodawanieNGTest {
         }
     }
 
+    @Test
+    public void testPizzy(){
+        String result = Dodawanie.dodawanie("Ser", "ser");
+        assertEquals(result, "ser i ser :)");
+
+        result = Dodawanie.dodawanie("Ser", "szynka");
+        assertEquals(result, "ser i szynka :)");
+
+        result = Dodawanie.dodawanie("Ser", "Ananas");
+        assertEquals(result, "Nie.");
+
+        result = Dodawanie.dodawanie("cebula", "bigos");
+        assertNotEquals(result, "cebula i bigos :)");
+    }
+  
+    @Test
+    public void mergingTest(){
+        String result = Dodawanie.dodawanie("BARDZO DZIWNY STRIIING!", "DURIG");
+        assertEquals(result, "BARDZO DZIWNY STRIIING!"+"DURIG");
+
+        result = Dodawanie.dodawanie("fasfasfa", "Dafsoafsopa");
+        assertEquals(result, "fasfasfa" +"Dafsoafsopa");
+    }
+  
     @Test
     public void testDodawanie3() {
         System.out.println("dodawanie3");
@@ -101,4 +125,29 @@ public class DodawanieNGTest {
 
         assertEquals(result, expResult);
     }
+  
+    @Test
+    public void testDodawanie7() {
+        System.out.println("dodawanie7");
+        String a = "1250";
+        String b = "8";
+        String expected = "SPECJALNY WYNIK HEX DLA CIEBIE: 9c4";
+        String result = Dodawanie.dodawanie(a, b);
+        assertEquals(result, expected);
+    }
+
+    @Test
+    public void testDodawanie8() {
+        System.out.println("dodawanie8");
+        Random r = new Random();
+        for(int i = 0; i < 5; i++){
+            int a = r.nextInt((1200 - 1100) + 1) + 1100;
+            int b = r.nextInt(100);
+            String expected = "HEX: " + Integer.toHexString(a+b);
+            String result = Dodawanie.dodawanie(Integer.toString(a), Integer.toString(b));
+            assertEquals(result, expected);
+        }
+    }
 }
+
+
