@@ -1,2 +1,4 @@
-script: bash script.sh
 language: java
+jdk:
+  - oraclejdk11
+before_script: cd ./MegaMnozenie
