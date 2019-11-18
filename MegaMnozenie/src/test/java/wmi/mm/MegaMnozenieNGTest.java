@@ -20,7 +20,7 @@ import org.testng.annotations.Test;
  * @author bikol
  */
 public class MegaMnozenieNGTest {
-    
+
     public MegaMnozenieNGTest() {
     }
 
@@ -52,6 +52,7 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
+
     @Test
     public void testMnozenie2() {
         System.out.println("mnozenie");
@@ -61,20 +62,22 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
+
     @Test
     public void testMnozenie3() {
         System.out.println("mnozenie");
         Random r = new Random();
-        for(int i=0;i<100;i++){
+        for (int i = 0; i < 100; i++) {
             int aa = r.nextInt(100);
             int bb = r.nextInt(100);
             String a = Integer.toString(aa);
             String b = Integer.toString(bb);
-            String expResult = Integer.toString(aa*bb);
+            String expResult = Integer.toString(aa * bb);
             String result = MegaMnozenie.mnozenie(a, b);
             assertEquals(result, expResult);
         }
     }
+
     //Test throws IllegalArgumentException
     @Test
     public void testMnozenie4() {
@@ -83,7 +86,7 @@ public class MegaMnozenieNGTest {
         String a = "990";
         String b = "110";
         try {
-            MegaMnozenie.mnozenie(a,b);
+            MegaMnozenie.mnozenie(a, b);
             fail();
         } catch (IllegalArgumentException e) {
             Assert.assertTrue(true);
@@ -100,26 +103,26 @@ public class MegaMnozenieNGTest {
         String b = "11.11";
         String expResult = "134.6532";
         String result = MegaMnozenie.mnozenie_float(a, b);
+    }
 
-    
-    
-    @Test
-    public void testMnozenie4() {
-        System.out.println("mnozenie");
-        String a = "0";
-        String b = "string";
-        String expResult = "";
-        String result = MegaMnozenie.mnozenie(a, b);
-        assertEquals(result, expResult);
+        @Test
+        public void testMnozenie5 () {
+            System.out.println("mnozenie");
+            String a = "0";
+            String b = "string";
+            String expResult = "";
+            String result = MegaMnozenie.mnozenie(a, b);
+            assertEquals(result, expResult);
+        }
+
+        @Test
+        public void testMnozenie6 () {
+            System.out.println("mnozenie");
+            String a = "10";
+            String b = "string";
+            String expResult = "stringstringstringstringstringstringstringstringstringstring";
+            String result = MegaMnozenie.mnozenie(a, b);
+            assertEquals(result, expResult);
+        }
     }
-    
-    @Test
-    public void testMnozenie5() {
-        System.out.println("mnozenie");
-        String a = "10";
-        String b = "string";
-        String expResult = "stringstringstringstringstringstringstringstringstringstring";
-        String result = MegaMnozenie.mnozenie(a, b);
-        assertEquals(result, expResult);
-    }
-}
+

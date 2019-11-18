@@ -25,11 +25,11 @@ public class MegaMnozenie
                 if(aa <=100 && bb <=100)
                 {
                     return Integer.toString(aa*bb);
-                } 
-                else 
+                }
+                else
                 {
                     throw new IllegalArgumentException();
-                }   
+                }
             }
             // Only "a" can be parsed to int OR
             // only "b" can be parsed to int
@@ -41,7 +41,6 @@ public class MegaMnozenie
                     // ... return "b" multiplied "a" times
                     int aa = Integer.parseInt(a);
                     return multiplyString(b, aa);
-                    
                 }
                 // If "b" is number and "a" is some string ...
                 else if(isParsableToInt(b))
@@ -52,27 +51,20 @@ public class MegaMnozenie
                 }
             }
         }
-        // Both "a" and "b" can't be parsed to int
-        else
-        {
-
-            throw new IllegalArgumentException();
-        }
-        
+        throw new IllegalArgumentException();
     }
-    
     // Method checks if given String is parsable to int 
-    public static boolean isParsableToInt(String value) 
-    {  
-        try 
-        {  
-            Integer.parseInt(value);  
-            return true;  
-        } 
-        catch (NumberFormatException e) 
-        {  
-            return false;  
-        }  
+    private static boolean isParsableToInt(String value)
+    {
+        try
+        {
+            Integer.parseInt(value);
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            return false;
+        }
     }
 
     public static  String mnozenie_float(String a, String b){
