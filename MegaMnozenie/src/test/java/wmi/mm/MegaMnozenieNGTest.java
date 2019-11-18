@@ -115,6 +115,16 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
+
+    @Test
+    public void testMnozenie6() {
+        System.out.println("potega");
+        String a = "2^";
+        String b = "3";
+        String expResult = "8";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
 }
 
 
