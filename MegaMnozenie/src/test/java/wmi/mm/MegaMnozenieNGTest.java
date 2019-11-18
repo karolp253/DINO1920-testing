@@ -83,9 +83,8 @@ public class MegaMnozenieNGTest {
     @Test
     public void testMnozenie4() {
         System.out.println("mnozenie");
-        //Input values a and b out on bound.
-        String a = "990";
-        String b = "110";
+        String a = "99ds";
+        String b = "11f";
         try {
             MegaMnozenie.mnozenie(a, b);
             fail();
@@ -95,15 +94,17 @@ public class MegaMnozenieNGTest {
     }
 
     /**
-     * Test of mnozenie_float method, of class MegaMnozenie.
+     * Test of mnozenieWieluInt method, of class MegaMnozenie.
      */
     @Test
     public void testMnozenie_float1() {
-        System.out.println("mnozenie_float");
-        String a = "12.12";
-        String b = "11.11";
-        String expResult = "134.6532";
-        String result = MegaMnozenie.mnozenie_float(a, b);
+        System.out.println("mnozenieWieluInt");
+        int a = 12;
+        int b = 11;
+        int c = 10;
+        int d = 3;
+        int expResult = 3960;
+        int result = MegaMnozenie.mnozenieWileluInt(a, b, c, d);
     }
 
 
@@ -126,7 +127,7 @@ public class MegaMnozenieNGTest {
             String result = MegaMnozenie.mnozenie(a, b);
             assertEquals(result, expResult);
         }
-    }
+
 
     @Test
     public void testMnozenieWiekszeNiz100(){

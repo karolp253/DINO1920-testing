@@ -38,10 +38,19 @@ public class MegaMnozenie
             return multiplyString(b, aa);
         }
         // first one is string
-        else{
+        else if (!isParsableToInt(a) && isParsableToInt(b)){
             int bb = Integer.parseInt(b);
             return multiplyString(a, bb);
         }
+        throw new IllegalArgumentException();
+    }
+    public static  int mnozenieWileluInt (int arg0, int...args){
+        int wynik = arg0;
+
+        for (int i = 0; i < args.length; i++){
+            wynik *= args[i];
+        }
+        return wynik;
     }
 
     // Method checks if given String is parsable to int
