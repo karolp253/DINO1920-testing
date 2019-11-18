@@ -78,6 +78,7 @@ public class MegaMnozenieNGTest {
         }
     }
 
+
     //Test throws IllegalArgumentException
     @Test
     public void testMnozenie4() {
@@ -105,6 +106,7 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie_float(a, b);
     }
 
+
         @Test
         public void testMnozenie5 () {
             System.out.println("mnozenie");
@@ -125,4 +127,26 @@ public class MegaMnozenieNGTest {
             assertEquals(result, expResult);
         }
     }
+
+    @Test
+    public void testMnozenieWiekszeNiz100(){
+        System.out.println("mnozenie liczb wiekszych niz 100");
+        String a = "101";
+        String b = "102";
+        String expResult = "10302";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenieFloat() {
+        System.out.println("mnozenie float");
+        String a = "1.5";
+        String b = "2.3";
+        String expResult = "3.45";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+}
+
 

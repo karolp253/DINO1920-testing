@@ -14,7 +14,7 @@ import java.util.List;
  * @author bikol
  */
 public class Dodawanie {
-    public static String dodawanie(String a, String b){
+    public static String dodawanie(String a, String b) throws IllegalArgumentException {
 
         PizzaFactory pizzaFactory = new PizzaFactory();
         if (pizzaFactory.CanMakePizza(a,b)){
@@ -22,15 +22,31 @@ public class Dodawanie {
         }
        if(!isInteger(a)) {
             return dodawanieFloatDoInt(a, b);
-        } else {
+        } else if(isValidNumber(a) && isValidNumber(b)) {
             int aa = Integer.valueOf(a);
             int bb = Integer.valueOf(b);
 
             if(aa<=100 && bb<=100){
                 return Integer.toString(aa+bb);
             }
-       
+            if(!isInteger(b)){
+                return "Niedozwolona operacja";
+            }
+            if(aa>=1000 && aa<=1200){
+                int wynik = aa + bb;
+                return "HEX: " + Integer.toHexString(wynik);
+            }
+            else if (aa>1200 && aa<=1300) {
+                int wynik = aa + aa;
+                return "SPECJALNY WYNIK HEX DLA CIEBIE: " + Integer.toHexString(wynik);
+            }
+
+            return "etam co mnie to";
         }
+        else{
+            throw new IllegalArgumentException("Co najmniej jeden z argumentow nie jest liczba");
+        }
+
         try {
             int aa = Integer.parseInt(a);
             int bb = Integer.parseInt(b);
@@ -88,5 +104,9 @@ public class Dodawanie {
         System.out.println(aa+bb);
         return Float.toString(aa+bb);
 
+    }
+
+    private static boolean isValidNumber(String a) {
+        return a.matches("[0-9]+");
     }
 }
