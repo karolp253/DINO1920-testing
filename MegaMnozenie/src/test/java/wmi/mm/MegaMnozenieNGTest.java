@@ -5,7 +5,6 @@
  */
 package wmi.mm;
 
-import java.util.Arrays;
 import java.util.Random;
 import static org.testng.Assert.*;
 import org.testng.annotations.AfterClass;
@@ -19,7 +18,7 @@ import org.testng.annotations.Test;
  * @author bikol
  */
 public class MegaMnozenieNGTest {
-    
+
     public MegaMnozenieNGTest() {
     }
 
@@ -75,8 +74,8 @@ public class MegaMnozenieNGTest {
             assertEquals(result, expResult);
         }
     }
-    
-    
+
+
     @Test
     public void testMnozenie4() {
         System.out.println("mnozenie");
@@ -86,13 +85,33 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
-    
+
     @Test
     public void testMnozenie5() {
         System.out.println("mnozenie");
         String a = "10";
         String b = "string";
         String expResult = "stringstringstringstringstringstringstringstringstringstring";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenieWiekszeNiz100(){
+        System.out.println("mnozenie liczb wiekszych niz 100");
+        String a = "101";
+        String b = "102";
+        String expResult = "10302";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenieFloat() {
+        System.out.println("mnozenie float");
+        String a = "1.5";
+        String b = "2.3";
+        String expResult = "3.45";
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
@@ -118,3 +137,5 @@ public class MegaMnozenieNGTest {
     }
 
 }
+
+
