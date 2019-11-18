@@ -14,6 +14,10 @@ public class MegaMnozenie
 
     public static String mnozenie(String a, String b)
     {
+        if(ifContainsPowerSymbol(a)){
+            return powerInt(a, b);
+        }
+        else {
             // both "a" and "b" are double or int
             if (isParsableToDouble(a) && isParsableToDouble(b)) {
                 // both "a" and "b" are int
@@ -40,7 +44,7 @@ public class MegaMnozenie
                 int bb = Integer.parseInt(b);
                 return multiplyString(a, bb);
             }
-
+        }
     }
 
     // Method checks if given String is parsable to int
@@ -77,5 +81,21 @@ public class MegaMnozenie
             return false;
         }
     }
+    public static boolean ifContainsPowerSymbol(String value){
+        return value.contains("^");
+    }
 
+    public static String powerInt(String a, String b){
+
+        String clearA = a.replace("^", "");
+        if(b.equals("0"))
+            return "1";
+        if(b.equals("1"))
+            return clearA;
+        String result = clearA;
+        for(int i = 1; i < Integer.parseInt(b); i++){
+            result = mnozenie(result, clearA);
+        }
+        return result;
+    }
 }
