@@ -9,28 +9,29 @@ package wmi.mm;
  *
  * @author bikol
  */
-public class MegaMnozenie 
+public class MegaMnozenie
 {
-    
+
     public static String mnozenie(String a, String b)
     {
-        if(isParsableToInt(a) || isParsableToInt(b))
-        {
-            // "a" and "b" can be parsed to int
-            if(isParsableToInt(a) && isParsableToInt(b))
-            {
+        // both "a" and "b" are double or int
+        if(isParsableToDouble(a) && isParsableToDouble(b)){
+            // both "a" and "b" are int
+            if(isParsableToInt(a) && isParsableToInt(b)){
                 int aa = Integer.parseInt(a);
                 int bb = Integer.parseInt(b);
-                if(aa <=100 && bb <=100)
-                {
-                    return Integer.toString(aa*bb);
-                } 
-                else 
-                {
-                    throw new IllegalArgumentException();
-                }   
+                return Integer.toString(aa * bb);
             }
-            // Only "a" can be parsed to int OR
+
+            // one of them is double
+            else{
+                double aa = Double.parseDouble(a);
+                double bb = Double.parseDouble(b);
+                double result = Math.round(aa * bb * 100.0) / 100.0;
+                return Double.toString(result);
+            }
+        }
+                // Only "a" can be parsed to int OR
             // only "b" can be parsed to int
             else
             {
@@ -74,40 +75,42 @@ public class MegaMnozenie
                     return multiplyString(a, bb);
                 }
             }
-        }
-        // Both "a" and "b" can't be parsed to int
-        else
-        {
-            throw new IllegalArgumentException();
-        }
         return "string";
     }
-    
-    // Method checks if given String is parsable to int 
-    public static boolean isParsableToInt(String value) 
-    {  
-        try 
-        {  
-            Integer.parseInt(value);  
-            return true;  
-        } 
-        catch (NumberFormatException e) 
-        {  
-            return false;  
-        }  
+
+    // Method checks if given String is parsable to int
+    public static boolean isParsableToInt(String value)
+    {
+        try
+        {
+            Integer.parseInt(value);
+            return true;
+        }
+        catch (NumberFormatException e)
+        {
+            return false;
+        }
     }
-    
-    
+
+
     public static String multiplyString(String stringToMultiply, int howManyTimes)
     {
         String result = "";
-        
+
         for(int i = 0; i < howManyTimes; i ++)
         {
             result += stringToMultiply;
         }
         return result;
     }
-    
-}
 
+    private static boolean isParsableToDouble(String value){
+        try{
+            Double.parseDouble(value);
+            return true;
+        }catch (NumberFormatException e){
+            return false;
+        }
+    }
+
+}
