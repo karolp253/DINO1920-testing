@@ -9,7 +9,9 @@ package wmi.mm;
  *
  * @author bikol
  */
-public class MegaMnozenie
+
+public class MegaMnozenie 
+
 {
 
     public static String mnozenie(String a, String b)
@@ -35,16 +37,26 @@ public class MegaMnozenie
                 }
             }
             // second one is string
-            else if (isParsableToInt(a) && !isParsableToInt(b)) {
-                int aa = Integer.parseInt(a);
-                return multiplyString(b, aa);
-            }
-            // first one is string
-            else {
-                int bb = Integer.parseInt(b);
-                return multiplyString(a, bb);
-            }
+            else if (isParsableToInt(a) && !isParsableToInt(b)){
+            int aa = Integer.parseInt(a);
+            return multiplyString(b, aa);
         }
+            // first one is string
+            else if (!isParsableToInt(a) && isParsableToInt(b)){
+            int bb = Integer.parseInt(b);
+            return multiplyString(a, bb);
+        }
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static  int mnozenieWileluInt (int arg0, int...args){
+        int wynik = arg0;
+
+        for (int i = 0; i < args.length; i++){
+            wynik *= args[i];
+        }
+        return wynik;
     }
 
     // Method checks if given String is parsable to int
@@ -72,6 +84,8 @@ public class MegaMnozenie
         }
         return result;
     }
+   
+
 
     private static boolean isParsableToDouble(String value){
         try{
