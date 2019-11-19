@@ -150,7 +150,7 @@ public class MegaMnozenieNGTest {
     }
 
     @Test
-    public void testMnozenie6(){
+    public void testMnozenie_Spaces1(){
         System.out.println("mnozenie");
         String a = "1 2 3";
         String b = "4 5 6";
@@ -160,7 +160,7 @@ public class MegaMnozenieNGTest {
     }
 
     @Test
-    public void testMnozenie7(){
+    public void testMnozenie_Spaces2(){
         System.out.println("mnozenie");
         String a = "4 8 16";
         String b = "1 2 3 4 5";
