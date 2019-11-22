@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package wmi.mm;
+import java.io.IOException;
 import java.util.Arrays;
 /**
  * @author bikol
@@ -41,6 +42,9 @@ class MegaMnozenie {
                 int bb = Integer.parseInt(b);
                 return multiplyString(a, bb);
             }
+            else if(isLetterInStringAndDigit(a,b)){
+                throw new IllegalArgumentException();
+            }
             // Both "a" and "b" can't be parsed
             else {
                 StringBuilder result = new StringBuilder();
@@ -70,6 +74,32 @@ class MegaMnozenie {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    private static boolean isLetterInStringAndDigit(String a,String b){
+        boolean isDigitAorB=false;
+        boolean isLetterAorB=false;
+        for(char x : a.toCharArray()){
+            if(Character.isAlphabetic(x)){
+                isLetterAorB=true;
+            }
+        }
+        for(char x : b.toCharArray()){
+            if(Character.isAlphabetic(x)){
+                isLetterAorB=true;
+            }
+        }
+        for(char x : a.toCharArray()){
+            if(Character.isDigit(x)){
+                isDigitAorB=true;
+            }
+        }
+        for(char x : b.toCharArray()){
+            if(Character.isDigit(x)){
+                isDigitAorB=true;
+            }
+        }
+        return isDigitAorB && isLetterAorB;
     }
 
     private static String multiplyString(String stringToMultiply, int howManyTimes) {

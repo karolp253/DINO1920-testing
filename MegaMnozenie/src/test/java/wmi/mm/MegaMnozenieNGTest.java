@@ -128,8 +128,7 @@ public class MegaMnozenieNGTest {
 
 
     @Test
-
-    public void testMnozenie6() {
+    public void testMnozenie7() {
         System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
 
         String arg1 = "ab";
@@ -137,8 +136,9 @@ public class MegaMnozenieNGTest {
 
         String expResult = "az, ax, av, bz, bx, bv";
         String result = MegaMnozenie.mnozenie(arg1, arg2);
+    }
 
-
+    @Test
     public void testMnozenieWiekszeNiz100(){
         System.out.println("mnozenie liczb wiekszych niz 100");
         String a = "101";
@@ -149,7 +149,7 @@ public class MegaMnozenieNGTest {
     }
 
     @Test
-    public void testMnozenie7() {
+    public void testMnozenie8() {
         System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
 
         String arg1 = "a";
@@ -161,7 +161,7 @@ public class MegaMnozenieNGTest {
         assertEquals(result, expResult);
     }
 
-
+    @Test
     public void testMnozenieFloat() {
         System.out.println("mnozenie float");
         String a = "1.5";
