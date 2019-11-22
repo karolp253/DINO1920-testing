@@ -12,10 +12,9 @@ import java.util.Arrays;
 class MegaMnozenie {
 
     static String mnozenie(String a, String b) {
-        if(isSpaceInString(a)&&isSpaceInString(b)){
-            return multiplyStringWithSpaces(a,b);
-        }
-        else {
+        if (isSpaceInString(a) && isSpaceInString(b)) {
+            return multiplyStringWithSpaces(a, b);
+        } else {
             // both "a" and "b" are double or int
             if (isParsableToDouble(a) && isParsableToDouble(b)) {
                 // both "a" and "b" are int
@@ -38,21 +37,29 @@ class MegaMnozenie {
                 return multiplyString(b, aa);
             }
             // first one is string
-            else if (!isParsableToInt(a) && isParsableToInt(b)){
+            else if (!isParsableToInt(a) && isParsableToInt(b)) {
                 int bb = Integer.parseInt(b);
                 return multiplyString(a, bb);
             }
-            throw new IllegalArgumentException();
+            // Both "a" and "b" can't be parsed
+            else {
+                StringBuilder result = new StringBuilder();
+                for (char i : a.toCharArray())
+                    for (char j : b.toCharArray())
+                        result.append(i).append(j).append(", ");
+                return result.substring(0, result.length() - 2);
+            }
         }
     }
 
-    public static  int mnozenieWileluInt (int arg0, int...args){
+    static int mnozenieWileluInt (int arg0, int...args){
         int wynik = arg0;
 
         for (int i = 0; i < args.length; i++){
             wynik *= args[i];
         }
         return wynik;
+
     }
 
     // Method checks if given String is parsable to int
@@ -64,7 +71,6 @@ class MegaMnozenie {
             return false;
         }
     }
-
 
     private static String multiplyString(String stringToMultiply, int howManyTimes) {
         String result = "";

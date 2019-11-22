@@ -100,6 +100,7 @@ public class DodawanieNGTest {
         }
     }
 
+
     @Test
     public void testDodawanie5(){
         System.out.println("dodawanie5");
@@ -147,6 +148,30 @@ public class DodawanieNGTest {
             String result = Dodawanie.dodawanie(Integer.toString(a), Integer.toString(b));
             assertEquals(result, expected);
         }
+    }
+      
+    @Test
+    public void testDodawanieCyfry() {
+        System.out.println("dodawanie Cyfr");
+
+        String a = "Trzy";
+        String b = "Jeden";
+
+        String expResult = "4";
+        String result = Dodawanie.dodawanie(a, b);
+        assertEquals(result, expResult);
+    }
+    
+    @Test
+    public void testDodawanieTrzechCyfr() {
+        System.out.println("dodawanie trzech liczb naraz");
+
+        String a = "4;5;6";
+        String b = "1;2;3";
+
+        String expResult = "5;7;9";
+        String result = Dodawanie.dodawanie(a, b);
+        assertEquals(result, expResult);
     }
 }
 
