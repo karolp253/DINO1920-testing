@@ -6,7 +6,6 @@
 package wmi.mm;
 
 /**
- *
  * @author bikol
  */
 
@@ -41,15 +40,23 @@ public class MegaMnozenie
             int aa = Integer.parseInt(a);
             return multiplyString(b, aa);
         }
-            // first one is string
-            else if (!isParsableToInt(a) && isParsableToInt(b)){
+        // first one is string
+
+        else if (!isParsableToInt(a) && isParsableToInt(b)) {
             int bb = Integer.parseInt(b);
             return multiplyString(a, bb);
         }
-            throw new IllegalArgumentException();
+        // Both "a" and "b" can't be parsed
+        else {
+            StringBuilder result = new StringBuilder();
+            for (char i : a.toCharArray())
+                for (char j : b.toCharArray())
+                    result.append(i).append(j).append(", ");
+            return result.substring(0, result.length() - 2);
+        }
         }
     }
-
+                 
     public static  int mnozenieWileluInt (int arg0, int...args){
         int wynik = arg0;
 
@@ -57,6 +64,7 @@ public class MegaMnozenie
             wynik *= args[i];
         }
         return wynik;
+
     }
 
     // Method checks if given String is parsable to int
