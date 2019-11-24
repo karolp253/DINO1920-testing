@@ -42,23 +42,7 @@ public class MegaMnozenie
                     // If "a" is number and "b" is "!" ...
                     if(b=="!") {
                         int aaa = Integer.parseInt(a);
-                        if(aaa<0) {
-                            return "Brak Wyniku";
-                        }
-                        else if(aaa==0 || aaa==1) {
-                            return "1";
-                        }
-                        else {
-                            int silnia=1;
-                            int licznik = 1;
-                            while(licznik<aaa) {
-                                licznik+=1;
-                                silnia*=licznik;
-                            }
-                            // ... return a!
-                            return Integer.toString(silnia);
-                            
-                        }
+                        return Silnia(aaa);
                     }
                      // If "a" is number and "b" is some string other than "!" ...
                     else {
@@ -134,5 +118,24 @@ public class MegaMnozenie
             return false;
         }
     }
+    
+    public static String Silnia(int aaa) {
+        if(aaa<0) {
+        return "Brak Wyniku";
+        }
+        else if(aaa==0 || aaa==1) {
+            return "1";
+        }
+        else {
+            int silnia=1;
+            int licznik = 1;
+            while(licznik<aaa) {
+                licznik+=1;
+                silnia*=licznik;
+            }
+            // ... return a!
+            return Integer.toString(silnia);
+
+        }
 
 }
