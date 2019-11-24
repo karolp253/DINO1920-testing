@@ -6,6 +6,8 @@
 package wmi.mm;
 
 import java.util.Random;
+import java.util.Set;
+
 import static org.testng.Assert.*;
 
 import org.testng.Assert;
@@ -77,9 +79,6 @@ public class MegaMnozenieNGTest {
             assertEquals(result, expResult);
         }
     }
-
-
-    //Test throws IllegalArgumentException
     @Test
     public void testMnozenie4() {
         System.out.println("mnozenie");
@@ -92,7 +91,6 @@ public class MegaMnozenieNGTest {
             Assert.assertTrue(true);
         }
     }
-
     /**
      * Test of mnozenieWieluInt method, of class MegaMnozenie.
      */
@@ -166,6 +164,17 @@ public class MegaMnozenieNGTest {
 
 
     @Test
+
+    public void testMnozenie6() {
+        System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
+
+        String arg1 = "ab";
+        String arg2 = "zxv";
+
+        String expResult = "az, ax, av, bz, bx, bv";
+        String result = MegaMnozenie.mnozenie(arg1, arg2);
+
+
     public void testMnozenieWiekszeNiz100(){
         System.out.println("mnozenie liczb wiekszych niz 100");
         String a = "101";
@@ -176,6 +185,19 @@ public class MegaMnozenieNGTest {
     }
 
     @Test
+    public void testMnozenie7() {
+        System.out.println("mnozenie dwoch stringow nie bedacych liczbami");
+
+        String arg1 = "a";
+        String arg2 = "z";
+
+        String expResult = "az";
+        String result = MegaMnozenie.mnozenie(arg1, arg2);
+
+        assertEquals(result, expResult);
+    }
+
+
     public void testMnozenieFloat() {
         System.out.println("mnozenie float");
         String a = "1.5";
