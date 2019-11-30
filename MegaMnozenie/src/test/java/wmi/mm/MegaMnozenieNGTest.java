@@ -188,4 +188,24 @@ public class MegaMnozenieNGTest {
             assertEquals(result, expResult);
         }
     }
+
+    @Test
+    public void testMnozenieIntDoPotegi() {
+        System.out.println("potega");
+        String a = "2^";
+        String b = "3";
+        String expResult = "8";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozeniePotegaFloatDoPotegi() {
+        System.out.println("potega");
+        String a = "2.5^";
+        String b = "2";
+        String expResult = "6.25";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
 }

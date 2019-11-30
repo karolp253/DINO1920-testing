@@ -13,40 +13,39 @@ public class MegaMnozenie {
 
     public static String mnozenie(String a, String b)
     {
-        // both "a" and "b" are double or int
-        if(isParsableToDouble(a) && isParsableToDouble(b))
-        {
-            // both "a" and "b" are int
-            if(isParsableToInt(a) && isParsableToInt(b)){
-                int aa = Integer.parseInt(a);
-                int bb = Integer.parseInt(b);
-                return Integer.toString(aa * bb);
-            }
-            // one of them is double
-            else {
-                double aa = Double.parseDouble(a);
-                double bb = Double.parseDouble(b);
-                double result = aa * bb;
-                System.out.println(result);
-                return Double.toString(result);
-            }
-        }
-        else if (isParsableToInt(a) && !isParsableToInt(b))
-        {
-            int aa = Integer.parseInt(a);
-            return multiplyString(b, aa);
-        }
-        else if (!isParsableToInt(a) && isParsableToInt(b))
-        {
-            int bb = Integer.parseInt(b);
-            return multiplyString(a, bb);
+        if(ifContainsPowerSymbol(a)){
+            return powerInt(a, b);
         }
         else {
-            StringBuilder result = new StringBuilder();
-            for (char i : a.toCharArray())
-                for (char j : b.toCharArray())
-                    result.append(i).append(j).append(", ");
-            return result.substring(0, result.length() - 2);
+            // both "a" and "b" are double or int
+            if (isParsableToDouble(a) && isParsableToDouble(b)) {
+                // both "a" and "b" are int
+                if (isParsableToInt(a) && isParsableToInt(b)) {
+                    int aa = Integer.parseInt(a);
+                    int bb = Integer.parseInt(b);
+                    return Integer.toString(aa * bb);
+                }
+                // one of them is double
+                else {
+                    double aa = Double.parseDouble(a);
+                    double bb = Double.parseDouble(b);
+                    double result = aa * bb;
+                    System.out.println(result);
+                    return Double.toString(result);
+                }
+            } else if (isParsableToInt(a) && !isParsableToInt(b)) {
+                int aa = Integer.parseInt(a);
+                return multiplyString(b, aa);
+            } else if (!isParsableToInt(a) && isParsableToInt(b)) {
+                int bb = Integer.parseInt(b);
+                return multiplyString(a, bb);
+            } else {
+                StringBuilder result = new StringBuilder();
+                for (char i : a.toCharArray())
+                    for (char j : b.toCharArray())
+                        result.append(i).append(j).append(", ");
+                return result.substring(0, result.length() - 2);
+            }
         }
     }
 
@@ -92,5 +91,23 @@ public class MegaMnozenie {
         catch (NumberFormatException e){
             return false;
         }
+    }
+
+    public static boolean ifContainsPowerSymbol(String value){
+        return value.contains("^");
+    }
+
+    public static String powerInt(String a, String b){
+
+        String clearA = a.replace("^", "");
+        if(b.equals("0"))
+            return "1";
+        if(b.equals("1"))
+            return clearA;
+        String result = clearA;
+        for(int i = 1; i < Integer.parseInt(b); i++){
+            result = mnozenie(result, clearA);
+        }
+        return result;
     }
 }
