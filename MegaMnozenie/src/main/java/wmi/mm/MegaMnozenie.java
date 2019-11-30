@@ -13,6 +13,10 @@ import java.util.Arrays;
 class MegaMnozenie {
 
     static String mnozenie(String a, String b) {
+        if(ifContainsPowerSymbol(a)){
+            return powerInt(a, b);
+        }
+        else{
         if (isSpaceInString(a) && isSpaceInString(b)) {
             return multiplyStringWithSpaces(a, b);
         } else {
@@ -41,8 +45,7 @@ class MegaMnozenie {
             else if (!isParsableToInt(a) && isParsableToInt(b)) {
                 int bb = Integer.parseInt(b);
                 return multiplyString(a, bb);
-            }
-            else if(isLetterInStringAndDigit(a,b)){
+            } else if (isLetterInStringAndDigit(a, b)) {
                 throw new IllegalArgumentException();
             }
             // Both "a" and "b" can't be parsed
@@ -54,9 +57,10 @@ class MegaMnozenie {
                 return result.substring(0, result.length() - 2);
             }
         }
+        }
     }
-
-    static int mnozenieWileluInt (int arg0, int...args){
+                 
+    static  int mnozenieWileluInt (int arg0, int...args){
         int wynik = arg0;
 
         for (int i = 0; i < args.length; i++){
@@ -166,5 +170,22 @@ class MegaMnozenie {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+    private static boolean ifContainsPowerSymbol(String value){
+        return value.contains("^");
+    }
+
+    private static String powerInt(String a, String b){
+
+        String clearA = a.replace("^", "");
+        if(b.equals("0"))
+            return "1";
+        if(b.equals("1"))
+            return clearA;
+        String result = clearA;
+        for(int i = 1; i < Integer.parseInt(b); i++){
+            result = mnozenie(result, clearA);
+        }
+        return result;
     }
 }
