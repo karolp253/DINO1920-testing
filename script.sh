@@ -1,2 +1,2 @@
-cd SuperDodawanie/
+cd MegaMnozenie/
 mvn clean install

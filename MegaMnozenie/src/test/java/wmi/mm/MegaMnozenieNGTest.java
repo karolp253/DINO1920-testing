@@ -208,4 +208,24 @@ public class MegaMnozenieNGTest {
         String result = MegaMnozenie.mnozenie(a, b);
         assertEquals(result, expResult);
     }
+
+    @Test
+    public void testMnozenie_Spaces1(){
+        System.out.println("mnozenie");
+        String a = "1 2 3";
+        String b = "4 5 6";
+        String expResult = "4 10 18";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
+
+    @Test
+    public void testMnozenie_Spaces2(){
+        System.out.println("mnozenie");
+        String a = "4 8 16";
+        String b = "1 2 3 4 5";
+        String expResult = "4 16 48";
+        String result = MegaMnozenie.mnozenie(a, b);
+        assertEquals(result, expResult);
+    }
 }
