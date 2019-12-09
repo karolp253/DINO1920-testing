@@ -17,49 +17,49 @@ class MegaMnozenie {
             return powerInt(a, b);
         }
         else{
-        if (isSpaceInString(a) && isSpaceInString(b)) {
-            return multiplyStringWithSpaces(a, b);
-        } else {
-            // both "a" and "b" are double or int
-            if (isParsableToDouble(a) && isParsableToDouble(b)) {
-                // both "a" and "b" are int
-                if (isParsableToInt(a) && isParsableToInt(b)) {
+            if (isSpaceInString(a) && isSpaceInString(b)) {
+                return multiplyStringWithSpaces(a, b);
+            } else {
+                // both "a" and "b" are double or int
+                if (isParsableToDouble(a) && isParsableToDouble(b)) {
+                    // both "a" and "b" are int
+                    if (isParsableToInt(a) && isParsableToInt(b)) {
+                        int aa = Integer.parseInt(a);
+                        int bb = Integer.parseInt(b);
+                        return Integer.toString(aa * bb);
+                    }
+                    // one of them is double
+                    else {
+                        double aa = Double.parseDouble(a);
+                        double bb = Double.parseDouble(b);
+                        double result = aa*bb;
+                        return Double.toString(result);
+                    }
+                }
+                // second one is string
+                else if (isParsableToInt(a) && !isParsableToInt(b)) {
                     int aa = Integer.parseInt(a);
+                    return multiplyString(b, aa);
+                }
+                // first one is string
+                else if (!isParsableToInt(a) && isParsableToInt(b)) {
                     int bb = Integer.parseInt(b);
-                    return Integer.toString(aa * bb);
+                    return multiplyString(a, bb);
+                } else if (isLetterInStringAndDigit(a, b)) {
+                    throw new IllegalArgumentException();
                 }
-                // one of them is double
+                // Both "a" and "b" can't be parsed
                 else {
-                    double aa = Double.parseDouble(a);
-                    double bb = Double.parseDouble(b);
-                    double result = Math.round(aa * bb * 100.0) / 100.0;
-                    return Double.toString(result);
+                    StringBuilder result = new StringBuilder();
+                    for (char i : a.toCharArray())
+                        for (char j : b.toCharArray())
+                            result.append(i).append(j).append(", ");
+                    return result.substring(0, result.length() - 2);
                 }
             }
-            // second one is string
-            else if (isParsableToInt(a) && !isParsableToInt(b)) {
-                int aa = Integer.parseInt(a);
-                return multiplyString(b, aa);
-            }
-            // first one is string
-            else if (!isParsableToInt(a) && isParsableToInt(b)) {
-                int bb = Integer.parseInt(b);
-                return multiplyString(a, bb);
-            } else if (isLetterInStringAndDigit(a, b)) {
-                throw new IllegalArgumentException();
-            }
-            // Both "a" and "b" can't be parsed
-            else {
-                StringBuilder result = new StringBuilder();
-                for (char i : a.toCharArray())
-                    for (char j : b.toCharArray())
-                        result.append(i).append(j).append(", ");
-                return result.substring(0, result.length() - 2);
-            }
-        }
         }
     }
-                 
+
     static  int mnozenieWileluInt (int arg0, int...args){
         int wynik = arg0;
 
